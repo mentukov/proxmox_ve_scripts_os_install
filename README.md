@@ -9,3 +9,8 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/mentukov/pve_bash_scrip
 ```shell
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/mentukov/pve_bash_script/main/ubuntu_2404.sh)"
 ```
+
+### Alma Linux 9
+```shell
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/mentukov/pve_bash_script/main/alma.sh)"
+```
