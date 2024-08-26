@@ -199,7 +199,7 @@ function advanced_settings() {
     exit-script
   fi
 
-  if VM_NAME=$(whiptail --backtitle "install Alma Linux vm Help Script" --inputbox "Set Hostname" 8 58 ubuntu --title "HOSTNAME" --cancel-button Exit-Script 3>&1 1>&2 2>&3); then
+  if VM_NAME=$(whiptail --backtitle "install Alma Linux vm Help Script" --inputbox "Set Hostname" 8 58 alma --title "HOSTNAME" --cancel-button Exit-Script 3>&1 1>&2 2>&3); then
     if [ -z $VM_NAME ]; then
       HN="alma"
       echo -e "${DGN}Using Hostname: ${BGN}$HN${CL}"
