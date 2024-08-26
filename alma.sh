@@ -220,7 +220,7 @@ function advanced_settings() {
       CPU_TYPE=" -cpu host"
     else
       echo -e "${DGN}Using CPU Model: ${BGN}x86-64-v2${CL}"
-      CPU_TYPE=""
+      CPU_TYPE=" -cpu x86-64-v2"
     fi
   else
     exit-script
