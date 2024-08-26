@@ -1,4 +1,4 @@
-### For proxmox - install script of ubuntu server cloud-init with kvm kernel
+### For proxmox - install VM cloud-init script
 ... just run it in proxmox shell ...
 ### Ubuntu 20.04
 ```shell
