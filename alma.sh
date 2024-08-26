@@ -104,7 +104,7 @@ function arch_check() {
 function ssh_check() {
   if command -v pveversion >/dev/null 2>&1; then
     if [ -n "${SSH_CLIENT:+x}" ]; then
-      if whiptail --backtitle "install ubuntu Help Script" --defaultno --title "SSH DETECTED" --yesno "It's suggested to use the Proxmox shell instead of SSH, since SSH can create issues while gathering variables. Would you like to proceed with using SSH?" 10 62; then
+      if whiptail --backtitle "install Alma Linux vm Help Script" --defaultno --title "SSH DETECTED" --yesno "It's suggested to use the Proxmox shell instead of SSH, since SSH can create issues while gathering variables. Would you like to proceed with using SSH?" 10 62; then
         echo "you've been warned"
       else
         clear
@@ -125,7 +125,7 @@ function default_settings() {
   FORMAT=",efitype=4m"
   MACHINE=""
   DISK_CACHE=""
-  HN="ubuntu"
+  HN="alma"
   CPU_TYPE=""
   CORE_COUNT="2"
   RAM_SIZE="2048"
@@ -138,7 +138,7 @@ function default_settings() {
   echo -e "${DGN}Using Machine Type: ${BGN}i440fx${CL}"
   echo -e "${DGN}Using Disk Cache: ${BGN}None${CL}"
   echo -e "${DGN}Using Hostname: ${BGN}${HN}${CL}"
-  echo -e "${DGN}Using CPU Model: ${BGN}KVM64${CL}"
+  echo -e "${DGN}Using CPU Model: ${BGN}x86-64-v2${CL}"
   echo -e "${DGN}Allocated Cores: ${BGN}${CORE_COUNT}${CL}"
   echo -e "${DGN}Allocated RAM: ${BGN}${RAM_SIZE}${CL}"
   echo -e "${DGN}Using Bridge: ${BGN}${BRG}${CL}"
@@ -146,7 +146,7 @@ function default_settings() {
   echo -e "${DGN}Using VLAN: ${BGN}Default${CL}"
   echo -e "${DGN}Using Interface MTU Size: ${BGN}Default${CL}"
   echo -e "${DGN}Start VM when completed: ${BGN}no${CL}"
-  echo -e "${BL}Creating an Ubuntu 20.04 VM using the above default settings${CL}"
+  echo -e "${BL}Creating an Alma Linux VM using the above default settings${CL}"
 }
 
 function advanced_settings() {
@@ -201,7 +201,7 @@ function advanced_settings() {
 
   if VM_NAME=$(whiptail --backtitle "install Alma Linux vm Help Script" --inputbox "Set Hostname" 8 58 ubuntu --title "HOSTNAME" --cancel-button Exit-Script 3>&1 1>&2 2>&3); then
     if [ -z $VM_NAME ]; then
-      HN="ubuntu"
+      HN="alma"
       echo -e "${DGN}Using Hostname: ${BGN}$HN${CL}"
     else
       HN=$(echo ${VM_NAME,,} | tr -d ' ')
@@ -212,14 +212,14 @@ function advanced_settings() {
   fi
 
   if CPU_TYPE1=$(whiptail --backtitle "install Alma Linux vm Help Script" --title "CPU MODEL" --radiolist "Choose" --cancel-button Exit-Script 10 58 2 \
-    "0" "KVM64 (Default)" ON \
+    "0" "x86-64-v2 (Default)" ON \
     "1" "Host" OFF \
     3>&1 1>&2 2>&3); then
     if [ $CPU_TYPE1 = "1" ]; then
       echo -e "${DGN}Using CPU Model: ${BGN}Host${CL}"
       CPU_TYPE=" -cpu host"
     else
-      echo -e "${DGN}Using CPU Model: ${BGN}KVM64${CL}"
+      echo -e "${DGN}Using CPU Model: ${BGN}x86-64-v2${CL}"
       CPU_TYPE=""
     fi
   else
