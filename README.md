@@ -14,3 +14,8 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/mentukov/pve_bash_scrip
 ```shell
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/mentukov/pve_bash_script/main/alma.sh)"
 ```
+
+### VE post install
+```shell
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/mentukov/proxmox_ve_scripts_os_install/refs/heads/main/ve_post_install.sh)"
+```
